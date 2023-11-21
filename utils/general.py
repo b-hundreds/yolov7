@@ -662,7 +662,7 @@ def box_iou_for_nms(box1, box2, GIoU=False, DIoU=False, CIoU=False, SIoU=False, 
         return iou - 0.5 * (distance_cost + shape_cost)
     return iou  # IoU
 
-def soft_nms(bboxes, scores, iou_thresh=0.5,sigma=0.5,score_threshold=0.25):
+def soft_nms(bboxes, scores, iou_thresh=0.5,sigma=0.1,score_threshold=0.25):
     order = scores.argsort(descending=True).to(bboxes.device)
     keep = []
     
